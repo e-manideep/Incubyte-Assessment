@@ -3,7 +3,7 @@ class StringCalculator:
     def add(self, numbers: str) -> int:
         if not numbers:
             return 0
-        return int(numbers)
+        return sum(int(num) for num in numbers.split(","))
 
 class TestStringCalculator(unittest.TestCase):
     def test_empty_string(self):
@@ -20,5 +20,6 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         result = calculator.add("1,2")
         self.assertEqual(result, 3)
+
 if __name__ == '__main__':
     unittest.main()
