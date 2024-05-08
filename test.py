@@ -15,5 +15,10 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         result = calculator.add("1")
         self.assertEqual(result, 1)
+    
+    def test_multiple_numbers(self):
+        calculator = StringCalculator()
+        result = calculator.add("1,2")
+        self.assertEqual(result, 3)
 if __name__ == '__main__':
     unittest.main()
