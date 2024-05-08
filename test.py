@@ -1,5 +1,4 @@
 import unittest
-import re
 class StringCalculator:
     def add(self, numbers: str) -> int:
         if not numbers:
@@ -69,6 +68,12 @@ class TestStringCalculator(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             calculator.add("-1,2,-3")
         self.assertTrue("Negative numbers not allowed: -1, -3" in str(context.exception))
+    
+    def test_numbers_greater_than_1000_are_ignored(self):
+        calculator = StringCalculator()
+        result = calculator.add("2,1001")
+        self.assertEqual(result, 2)
+
 
 if __name__ == '__main__':
     unittest.main()
